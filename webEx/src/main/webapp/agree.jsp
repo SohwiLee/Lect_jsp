@@ -28,6 +28,7 @@
 	.btnCancle,.btnConfirm{padding:15px 105px; margin:0; text-align:center; font-size:1.2em; font-weight:300;border:none;color:white; cursor:pointer;}
 	.btnCancle{background-color: #8e8e8e;}
 	.btnConfirm{background-color: #08a600;}
+	.warning{margin:0; font-size: 0.8em; font-weight:400; color:red; display: none;}
 </style>
 <title>동의</title>
 </head>
@@ -37,7 +38,7 @@
 			<span>NAVER</span>
 		</h1>
 		<form action="join.jsp" method="get">
-			<input type="checkbox" name="" id="wholeAgree"> 
+			<input type="checkbox" name="" id="wholeAgree"  onclick="checkAll(this)"> 
 			<label for="wholeAgree"> 네이버 이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
 				프로모션 정보 수신(선택)에 모두 동의합니다. </label>
 
@@ -105,29 +106,31 @@
 					이용하는 서비스 등)의 경우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로
 					안내하고 동의를 받습니다.</p>
 			</div>
+			<p class="warning">네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</p>
 			<div class="btnChoice">
 				<input type="button" value="취소" class="btnCancle"> 
-				<input type="submit" value="확인" class="btnConfirm" onclick="checkVal(form)">
+				<input type="submit" value="확인" class="btnConfirm" onclick="checkVal(form); return false">
 			</div>
 		</form>
 	</div>
 	<script type="text/javascript">
-	// 전체선택
-    function checkAll(checkAll){
-        // console.log(checkAll.checked);
-        const boxes = document.querySelectorAll('input[type="checkBox"]');
-        for(let i=1;i<boxes.length;i++){
-            boxes[i].checked=checkAll.checked;
-        }
-    }
-   
-    function checkVal(form){
-        if(form.terms[1].checked && form.terms[2].checked){
-            form.submit();
-        }else{
-            alert('네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.');
-        }
-    }
+	console.log("반여영");
+		// 전체선택
+	    function checkAll(checkAll){
+	        // console.log(checkAll.checked);
+	        const boxes = document.querySelectorAll('input[type="checkBox"]');
+	        for(let i=1;i<boxes.length;i++){
+	            boxes[i].checked=checkAll.checked;
+	        }
+	    }
+	   
+	    function checkVal(form){
+	        if(form.terms[0].checked && form.terms[1].checked){
+	            form.submit();
+	        }else{
+	        	document.querySelector('.warning').setAttribute('style','display:block');
+	        }
+	    }
 	</script>
 	
 </body>

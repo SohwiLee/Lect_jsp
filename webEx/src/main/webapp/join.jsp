@@ -37,16 +37,16 @@
 			<div class="aboutNick">
 				<p>아이디</p>
 				<input type="text">
-				<p class="warning">필수 정보입니다.</p>
+				<p class="warning required" id="idReq">필수 정보입니다.</p>
 				<p>비밀번호</p>
 				<input type="password">
-				<p class="warning required">필수 정보입니다.</p>
+				<p class="warning required" id="pwReq">필수 정보입니다.</p>
 				<p class="warning inappropriate">8~16자 영문 대 소문자, 숫자, 특수문자를
 					사용하세요.</p>
 				<p>비밀번호 재확인</p>
 				<input type="password">
-				<p class="warning required">필수 정보입니다.</p>
-				<p class="warning inaccordance">비밀번호가 일치하지 않습니다.</p>
+				<p class="warning required" id="checkPwReq">필수 정보입니다.</p>
+				<p class="warning inaccordance" id="checkPwFalse">비밀번호가 일치하지 않습니다.</p>
 			</div>
 			<div class="authentication">
 				<p>이름</p>
@@ -90,7 +90,7 @@
 				<p>휴대전화</p>
 				<select name="" id="">
 					<option value="30">그리스 +30</option>
-					<option value="82">대한민국 +82</option>
+					<option value="82" selected>대한민국 +82</option>
 					<option value="52">멕시코 +52</option>
 					<option value="591">볼리비아 +591</option>
 					<option value="44">영국 +44</option>
@@ -104,7 +104,12 @@
 				<input type="number" name="" id="" placeholder="인증번호를 입력하세요">
 			</div>
 
-			<input type="submit" value="가입하기" class="btnConfirm">
+			<input type="submit" value="가입하기" class="btnConfirm" onclick="checkVal(form)">
+			
+			<script type="text/javascript">
+			
+			function checkVal(form){}
+			</script>
 
 		</form>
 	</div>
