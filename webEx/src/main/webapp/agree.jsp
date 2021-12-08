@@ -114,7 +114,6 @@
 		</form>
 	</div>
 	<script type="text/javascript">
-	console.log("반여영");
 		// 전체선택
 	    function checkAll(checkAll){
 	        // console.log(checkAll.checked);

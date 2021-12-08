@@ -11,6 +11,8 @@
 <body>
 	hello world
 	<%
+	// jdk 11 / tomcat 9 ver //
+	
 	// JSP : Java Server Page
 	// ㄴ html문서 안에 java문장(코드)을 작성하는 것 
 	
