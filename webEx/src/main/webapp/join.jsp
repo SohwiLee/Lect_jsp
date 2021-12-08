@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="96x96" href="https://favicon-generator.org/favicon-generator/htdocs/favicons/2014-12-19/a387e83fdefca59b0f928f867c0120ee.ico">
     <style>
         *{margin:0;padding:0; font-family: 'Noto Sans KR', sans-serif;word-break: keep-all;}
         body{background:#f5f6f7;}
-        h1 span{display:block; margin:0 auto;width:210px; height:40px; background: url(https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png); background-size:210px; color:transparent;}
+        h1 a{display:block; margin:0 auto;width:210px; height:40px; background: url(https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png); background-size:210px; color:transparent;}
         .wrap{width:450px; margin:80px auto;}
         form{margin-top:30px;}
         form div p{margin-top:30px;margin-bottom:8px; font-weight:500;font-size:0.95em;}
@@ -30,25 +32,25 @@
 </head>
 <body>
     <div class="wrap">
-        <h1><span>NAVER</span></h1>
+        <h1><a href="http://www.naver.com"><span>NAVER</span></a></h1>
         <form action="joinPro.jsp" method="post">
             <div class="aboutNick">
-                <p>아이디</p><input type="text" id="id">
+                <p>아이디</p><input type="text" id="id" name="id">
                 <p class="warning required id">필수 정보입니다.</p>
-                <p>비밀번호</p><input type="password" id="pw">
+                <p>비밀번호</p><input type="password" id="pw" name="pw">
                 <p class="warning required pw">필수 정보입니다.</p>
                 <p class="warning inappropriate">8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p>
-                <p>비밀번호 재확인</p><input type="password" id="checkPw">
+                <p>비밀번호 재확인</p><input type="password" id="checkPw" name="checkPw">
                 <p class="warning required checkPw">필수 정보입니다.</p>
                 <p class="warning inaccordance">비밀번호가 일치하지 않습니다.</p>
             </div>
             <div class="authentication">
-                <p>이름</p><input type="text" id="name">
+                <p>이름</p><input type="text" id="name" name="name">
                 <p class="warning required name">필수 정보입니다.</p>
                 <p>생년월일</p>
                 <div class="birth">
-                    <input type="text" placeholder="년(4자)" maxlength="4" id="yy">
-                    <select name="" id="mm">
+                    <input type="text" placeholder="년(4자)" maxlength="4" id="yy" name="yy">
+                    <select id="mm" name="mm">
                         <option value="">월</option>
                         <option value="01">1</option>
                         <option value="02">2</option>
@@ -63,7 +65,7 @@
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select>
-                    <input type="text" placeholder="일" maxlength="2" id="dd">
+                    <input type="text" placeholder="일" maxlength="2" id="dd" name="dd">
                 </div>
                 <p class="warning required yy">태어난 년도 4자리를 정확하게 입력하세요.</p>
                 <p class="warning required mm">태어난 월을 선택하세요.</p>
@@ -71,17 +73,17 @@
                 <p class="warning inexsistable">정말이세요?</p>
 
                 <p>성별</p>
-                <select name="gender" id="gender">
+                <select name="gender" id="gender" name="gender">
                     <option value="">성별</option>
                     <option value="남">남</option>
                     <option value="여">여</option>
                 </select>
                 <p>본인 확인 이메일 <span>선택</span></p>
-                <input type="text" placeholder="선택입력">
+                <input type="text" placeholder="선택입력" name="email">
             </div>
             <div class="telephone">
                 <p>휴대전화</p>
-                <select name="national" id="national">
+                <select name="national" id="national" name="national">
                     <option value="30">그리스 +30</option>
                     <option value="82" selected>대한민국 +82</option>
                     <option value="52">멕시코 +52</option>
@@ -89,7 +91,7 @@
                     <option value="44">영국 +44</option>
                 </select>
                 <div class="tel-auth">
-                    <input type="tel" name="myTel" id="myTel" placeholder="전화번호 입력">
+                    <input type="tel" name="myTel" id="myTel" placeholder="전화번호 입력" name="myTel">
                     <a onclick="codeUsable()">인증번호 받기</a>
                 </div>
                 <input type="number" name="code" id="code" placeholder="인증번호를 입력하세요" disabled>
@@ -138,6 +140,7 @@
                        document.querySelector('.inaccordance').setAttribute('style','display:block');
                    }else{
                        document.querySelector('.checkPw').setAttribute('style','display:none');
+                       document.querySelector('.inaccordance').setAttribute('style','display:none');
                        passPwChk=true;
                     }
                });

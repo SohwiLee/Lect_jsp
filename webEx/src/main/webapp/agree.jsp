@@ -11,10 +11,11 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
 	rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://favicon-generator.org/favicon-generator/htdocs/favicons/2014-12-19/a387e83fdefca59b0f928f867c0120ee.ico">
 <style>
 	*{margin:0;padding:0; font-family: 'Noto Sans KR', sans-serif;word-break: keep-all;}
 	body{background:#f5f6f7;}
-	h1 span{display:block; margin:0 auto;width:210px; height:40px; background: url(https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png); background-size:210px; color:transparent;}
+	h1 a{display:block; margin:0 auto;width:210px; height:40px; background: url(https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png); background-size:210px; color:transparent;}
 	.wrap{width:500px; margin:80px auto;}
 	form{margin-top:30px;}
 	form > div{margin:30px 0;}
@@ -34,9 +35,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<h1>
-			<span>NAVER</span>
-		</h1>
+		<h1><a href="http://www.naver.com"><span>NAVER</span></a></h1>
 		<form action="join.jsp" method="get">
 			<input type="checkbox" name="" id="wholeAgree"  onclick="checkAll(this)"> 
 			<label for="wholeAgree"> 네이버 이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
