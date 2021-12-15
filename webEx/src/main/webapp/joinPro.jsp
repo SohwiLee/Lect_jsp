@@ -30,8 +30,7 @@
 <title>환영합니다!</title>
 </head>
 <body>
-	<%-- 뒤로가기시 세션만료 추가 --%>
-	<%-- ArrayList again --%>
+	<%-- 뒤로가기시 세션만료or잘못된접근warning 추가 --%>
 	<% 
 		request.setCharacterEncoding("UTF-8");
 		
@@ -48,15 +47,6 @@
 		String myTel = request.getParameter("myTel");
 		String email = request.getParameter("email");
 		 
-		ArrayList<String> ids = new ArrayList<>();
-		 ArrayList<String> pws = new ArrayList<>();
-		ids.add(id);
-		pws.add(pw);
-		
-		System.out.println(ids.size());
-		for(int i=0;i<ids.size();i++){
-			System.out.println(ids);
-		}
 		%>
 	<div class="wrap">
 		<h1><%=id %>님 환영합니다!</h1>
