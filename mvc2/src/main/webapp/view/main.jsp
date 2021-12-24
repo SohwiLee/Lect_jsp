@@ -9,8 +9,9 @@
 <body>
 <% System.out.println("log : "+session.getAttribute("log")); %>
 <h1> hello, <%=session.getAttribute("log") %>! </h1>
-<form action="logout" method="post">
+<form action="service" method="post">
 <input type="submit" value="logout">
+<input type="hidden" value="logout" name="command">
 </form>
 </body>
 </html>

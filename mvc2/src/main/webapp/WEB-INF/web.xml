@@ -20,6 +20,4 @@
   	<url-pattern>/TestServlet/</url-pattern>
   </servlet-mapping>
   
-  
-  
 </web-app>

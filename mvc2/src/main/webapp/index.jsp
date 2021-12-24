@@ -9,7 +9,8 @@
 <body>
 <h1>index</h1>
 <h2>login / join</h2>
-<form action="IndexServlet" method="post">
+<form action="service" method="post">
+<input type="hidden" name="command" value="index">
 	<input type="submit" name="link" value="login">
 	<input type="submit" name="link" value="join">
 </form>

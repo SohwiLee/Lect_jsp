@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.UserDAO;
+import controller.action.Action;
+import controller.action.LoginAction;
 
 /**
- * Servlet implementation class LoginPro
+ * Servlet implementation class Service
  */
-@WebServlet("/login")
-public class LoginPro extends HttpServlet {
+@WebServlet("/service")
+public class Service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginPro() {
+    public Service() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,27 +30,21 @@ public class LoginPro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		UserDAO dao = UserDAO.getInstance();
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		System.out.println("L-ID "+id);
-		System.out.println("L-pw "+pw);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		String url="";
+		System.out.println("[ServiceServlet] Served at:"+request.getContextPath());
+//		Action action = new LoginAction();
+//		action.execute(request, response);
 		
-		if(dao.checkLogin(id,pw)) {
-			url="view/main.jsp";	
-			request.getSession().setAttribute("log", id);
-			/* session.setAttribute("log",id); */
-			
-			System.out.println("Login success");
-		}else {
-			url="view/login.jsp";
-			System.out.println("Login fail");
+		// request parameter command 안에 있는 명령 확인 후 
+		// 명령에 맞는 Action Instacne 반환
+		String command = request.getParameter("command");
+		ActionFactory af = ActionFactory.getInstance();
+		Action action = af.getAction(command);
+		
+		if(action!= null) {
+			action.execute(request, response);
 		}
-		
-		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	/**

@@ -11,7 +11,8 @@
 <body>
 	<h2>login</h2>
 	<!-- url : login > loginPro.java(servlet) -->
-	<form action="login" method="post">
+	<form action="service" method="post">
+	<input type="hidden" name="command" value="login">
 	   <label for="id">ID</label><br>
 	   <input type="text" name="id" id="id" placeholder="ID"><br>
 	   <label for="pw">PW</label><br>

@@ -10,7 +10,8 @@
 </head>
 <body>
 <h2>JOIN</h2>
-<form action="join" method="post">
+<form action="service" method="post">
+<input type="hidden" name="command" value="join">	
 	<label for="id">ID</label><br>
 	<input type="text" name="id" placeholder="id"><br>
 	<label for="pw">PW</label><br>
