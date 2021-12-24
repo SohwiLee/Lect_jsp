@@ -8,14 +8,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-//
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-//import java.sql.Timestamp;
-//import java.util.ArrayList;
-//
 public class UserDAO {
 	// DAO : Data Access Object
 	// 单捞磐 立辟贸府

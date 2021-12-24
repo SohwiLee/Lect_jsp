@@ -9,9 +9,9 @@
 </head>
 <body>
  <!-- 수정 또는 삭제 -->
- <% BoardDAO dao = BoardDAO.getInstance(); 
- 	System.out.print("idx:::"+dao.status);
- 	
+ <%
+ BoardDAO dao = BoardDAO.getInstance(); 
+  	System.out.print("idx:::"+dao.status);
  %>
 	<form action="_15_boardUpdatePro.jsp" method="post">
 		<table border="1px solid black" style="width: 100%">

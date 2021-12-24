@@ -12,7 +12,9 @@
     <title>Board List</title>
 </head>
 <body>
-<% BoardDAO dao = BoardDAO.getInstance(); %>
+<%
+BoardDAO dao = BoardDAO.getInstance();
+%>
 	<%--
 		BoardDAO dao = BoardDAO.getInstance();
 		ArrayList<BoardDTO> datas = new ArrayList<>();

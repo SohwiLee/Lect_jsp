@@ -8,11 +8,11 @@
 <title>deletePro</title>
 </head>
 <body>
-	<% 
+	<%
 	BoardDAO dao = BoardDAO.getInstance();
-	int no = dao.getLists().get(dao.status).getNo();	
-	dao.deleteBoard(no);
-	response.sendRedirect("_8_boardList.jsp");
+		int no = dao.getLists().get(dao.status).getNo();	
+		dao.deleteBoard(no);
+		response.sendRedirect("_8_boardList.jsp");
 	%>
 </body>
 </html>

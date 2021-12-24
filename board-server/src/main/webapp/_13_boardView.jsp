@@ -10,7 +10,9 @@
     <title>boardView</title>
 </head>
 <body>
-	<% BoardDAO dao = BoardDAO.getInstance();%>
+	<%
+	BoardDAO dao = BoardDAO.getInstance();
+	%>
     <div class="wrap">
         <form action="_9_checkPass.jsp">
 	        <table border="1px solid black" style="width:100%">
@@ -42,6 +44,20 @@
 	        	}
 	        %>
         </form>
+        
+        
+    	<h3>댓글</h3>
+    	<form action="">
+	    	<div class="writeComment">
+		    	<p>작성자 : <%= session.getAttribute("log") %></p>
+		    	<input type="text" name="comment" placeholder="댓글입력">
+		    	<input type="button" value="댓글달기">
+	    	</div>
+	    	<div class="viewComment">
+	    		<p>작성자 : </p>
+	    		<p>내용내용</p>		    		
+	    	</div>
+    	</form>
     </div>
 
 </body>

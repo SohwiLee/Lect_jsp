@@ -9,7 +9,9 @@
 <title>Write</title>
 </head>
 <body>
-<% BoardDAO dao = BoardDAO.getInstance(); System.out.print("idx:::"+dao.status);%>
+<%
+BoardDAO dao = BoardDAO.getInstance(); System.out.print("idx:::"+dao.status);
+%>
 	<form action="_12_boardWritePro.jsp" method="post">
 		<table border="1px solid black" style="width: 100%">
 			<tr>

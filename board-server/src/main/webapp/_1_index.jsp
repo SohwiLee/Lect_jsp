@@ -35,6 +35,7 @@
         <input type="button" value="join"  id="join">
     </form>
     
+   
     <script>    
 	    document.querySelector('input#login').addEventListener('click',e=>{
 	    	// id값 유지
