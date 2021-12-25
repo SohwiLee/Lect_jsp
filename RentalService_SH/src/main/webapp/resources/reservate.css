@@ -1,0 +1,25 @@
+/* 예약옵션선택 */
+
+.result{padding:30px 0;}
+.result article{width:80%; min-width:750px; margin:0 auto 30px; border:1px solid lightgray; display: flex; align-items: center;}
+
+/* 차 이미지 */
+.info1{width:300px; height:100%; padding: 0 10px; background:rgb(239, 240, 253);}
+.info1 img{width:100%;}
+/* 차 정보 */
+.info2{width:calc(100% - 350px); padding:20px 40px; position: relative;}
+.info2 h3{font-size:1.5em;}
+.info2 span{margin-right:10px;}
+
+.info2 .basic{margin:5px 0 10px; font-size:1.2em;}
+.info2 .detail{min-height:60px; font-weight:300; color:grey;}
+.info2 .price{font-size:1.4em; font-weight:500; margin-bottom:5px;}
+.info2 .price span{margin:0;}
+.info2 .estimate{margin-bottom:10px; color:gray; font-weight:300;}
+.info2 .submit{position: absolute; right:50px;bottom:26px; font-size:1.1em;}
+
+
+/* 예약확인 */
+.reserveChk h3{padding:30px 4vw;}
+.reserveChk table{width:90%; margin:0 auto 80px;}
+.reserveChk table td{text-align:center;}
