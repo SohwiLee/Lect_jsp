@@ -18,7 +18,7 @@
 			<div>
 				<h2>회원가입</h2>
 			
-				<form action="joinPro.jsp">
+				<form action="/RentalService_SH/service">
 					<table>
 						<tr>
 							<td><label for="id">아이디</label></td>
@@ -101,6 +101,7 @@
 					<div class="btns">					
 						<input type="button" value="취소" onclick="location.href='../index.jsp'">
 						<input type="submit" value="회원가입">
+						<input type="hidden" name="command" value="join">
 					</div>
 				</form>
 			</div>

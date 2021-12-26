@@ -118,8 +118,11 @@ public class UserDAO {
 				pstmt.executeUpdate();
 				
 				users.remove(delIdx);
+				
+				System.out.println("user deleted");
 			} catch (Exception e) {
 				e.printStackTrace();
+				System.out.println("user delete fail");
 			}
 		}
 		
@@ -130,7 +133,7 @@ public class UserDAO {
 		users = getUsers();
 		try {
 			conn = DBManager.getConnection();
-			String str = "update members set userNick='?', tel='?', email='?' where id='?'";
+			String str = "update members set userNick=?, tel=?, email=? where id=?";
 			pstmt = conn.prepareStatement(str);
 			pstmt.setString(1, nick);
 			pstmt.setString(2, tel);
@@ -142,10 +145,12 @@ public class UserDAO {
 			users.get(idx).setTel(tel);
 			users.get(idx).setEmail(email);
 			
+			System.out.println("update clear");
 			return users.size();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("update fail");
 		}
 		
 		return -1;

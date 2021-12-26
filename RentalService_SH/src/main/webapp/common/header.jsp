@@ -25,7 +25,7 @@
 				<%} else {%>
 					<li><p><%= session.getAttribute("log")%></p></li>
 	 				<li>
-	 				<form action="service">
+	 				<form action="/RentalService_SH/service">
 	 				<input type="submit" name="command" value="로그아웃">
 	 				</form>
 	 				</li>

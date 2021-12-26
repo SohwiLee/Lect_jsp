@@ -1,6 +1,19 @@
-/* 예약옵션선택 */
+h2{padding:30px 100px;}
 
-.result{padding:30px 0;}
+/* 예약옵션선택 */
+.rentalDate{display:flex; background:#192028; text-align: center;}
+.rentalDate:before{content: '';height: 192px; display: block;width: 100%;position: absolute;left: 0;background: #192028;z-index: -1;}
+.rentalDate div{padding:50px 0;width:50%;}
+.rentalDate label{color:white; font-size:1.3em; font-weight:600;}
+.rentalDate input{border:none;margin-top:20px;padding:10px; border-radius:5px;}
+div.size{display:flex; justify-content: center; padding:80px 0; position:relative;}
+div.size:after{content: '';height: 1px; display: block; width: 100vw;position: absolute; bottom:0;background: #192028;z-index: -1;}
+div.size p{font-size:1.3em;font-weight:600;color:#192028;margin-right:5vw;}
+div.size label{font-size:1.2em;margin-right:5vw;}
+button.search{display:block;font-size:1.2em; font-weight:500; margin:0 auto;width:35%;background:#192028;border-radius:0;}
+
+
+.result{padding:100px 0 50px;}
 .result article{width:80%; min-width:750px; margin:0 auto 30px; border:1px solid lightgray; display: flex; align-items: center;}
 
 /* 차 이미지 */

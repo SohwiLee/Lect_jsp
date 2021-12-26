@@ -33,47 +33,49 @@
 					</div>
 					<div class="size">
 						<p>차종</p>
+						<div>
 						<input type="radio" name="carType" id="type1" value="경형" 
 						<% if(type != null && type.equals("경형")){%>
 						checked	
 						<%} %>
 						>
 						<label for="type1">경형</label>
-						
+						</div><div>
 						<input type="radio" name="carType" id="type2" value="소형"
 						<% if(type != null && type.equals("소형")){%>
 						checked	
 						<%} %>>
 						<label for="type2">소형</label>
-						
+						</div><div>
 						<input type="radio" name="carType" id="type3" value="중형"
 						<% if(type != null && type.equals("중형")){%>
 						checked	
 						<%} %>>
 						<label for="type3">중형</label>
-						
+						</div><div>
 						<input type="radio" name="carType" id="type4" value="SUV"
 						<% if(type != null && type.equals("SUV")){%>
 						checked	
 						<%} %>>
 						<label for="type4">RV/SUV</label>
-
+						</div><div>
 						<input type="radio" name="carType" id="type5" value="승합차"
 						<% if(type != null && type.equals("승합차")){%>
 						checked	
 						<%} %>>
 						<label for="type5">승합</label>
-						
+						</div><div>
 						<input type="radio" name="carType" id="type6" value="수입차"
 						<% if(type != null && type.equals("수입차")){%>
 						checked	
 						<%} %>> 
 						<label for="type6">수입</label>
+						</div>
 					</div> 
 					<div class="fuel"></div>
 					<div class="released"></div>
 					<div class="price"></div>
-					<button onclick="search()">검색</button>
+					<button class="search" onclick="search()">검색</button>
 				</div>
 			</section>
 			<section class="result">
