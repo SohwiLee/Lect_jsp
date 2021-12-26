@@ -1,5 +1,6 @@
 main{display:flex; min-height:calc(100vh - 360px); align-items:center;}
 main > section{flex:50%; padding:6vw;}
+h2{padding:0;}
 /* login */ 
 .login{border-right:1px solid lightgray;}
 .login form label{min-width:100px; display:inline-block;margin-bottom:10px;}

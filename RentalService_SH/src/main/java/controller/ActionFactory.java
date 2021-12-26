@@ -5,6 +5,7 @@ import controller.action.IndexAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
 import controller.action.ReservateAction;
+import controller.action.ReservateRemoveAction;
 
 // Factory Method : 생성디자인패턴
 public class ActionFactory {
@@ -20,8 +21,9 @@ public class ActionFactory {
 		System.out.println("C::"+command);
 		if(command.equals("IndexRecommend")) {action = new IndexAction();}
 		if(command.equals("login")) {action = new LoginAction();}
-		if(command.equals("logout")) {action = new LogoutAction();}
+		if(command.equals("로그아웃") || command.equals("logout")) {action = new LogoutAction();}
 		if(command.equals("reservate")) {action = new ReservateAction();}
+		if(command.equals("reserveCancel")) {action = new ReservateRemoveAction();}
 		
 		return action;
 	}

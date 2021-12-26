@@ -13,32 +13,31 @@ import model.dao.ReservateDAO;
 import model.dao.UserDAO;
 import model.dto.ReservateDTO;
 
-public class ReservateAction implements Action{
+public class ReservateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String url="";
-		if(request.getSession().getAttribute("log")==null){
-			url="login.jsp";
+		String url = "";
+		if (request.getSession().getAttribute("log") == null) {
+			url = "login.jsp";
 			/*
 			 * PrintWriter outpr = response.getWriter();
 			 * outpr.println("<script language='javascript'>");
 			 * outpr.println("alert('로그인이 필요한 서비스입니다.'); location.href='login.jsp';");
 			 * outpr.println("</script>"); outpr.flush();
 			 */
-		} else{ 
-			CarDAO cdao = CarDAO.getInstance();	
-			UserDAO udao= UserDAO.getInstance();
-			ReservateDAO rdao =ReservateDAO.getInstance(); 
-			
-			
-			String start= request.getParameter("rentS");
-			String end= request.getParameter("rentE");
-			
+		} else {
+			CarDAO cdao = CarDAO.getInstance();
+			UserDAO udao = UserDAO.getInstance();
+			ReservateDAO rdao = ReservateDAO.getInstance();
+
+			String start = request.getParameter("rentS");
+			String end = request.getParameter("rentE");
+
 			String carName = request.getParameter("carName");
-			
-			if(start==null || end==null){
+
+			if (start == null || end == null) {
 				/*
 				 * PrintWriter outpr = response.getWriter();
 				 * outpr.println("<script language='javascript'>");
@@ -49,7 +48,7 @@ public class ReservateAction implements Action{
 			Timestamp startD = Timestamp.valueOf(start);
 			Timestamp endD = Timestamp.valueOf(end);
 			int totalPrice = Integer.parseInt(request.getParameter("ePrice"));
-			
+
 			/*
 			 * System.out.println("car:"+carName); System.out.println("total:"+totalPrice);
 			 */
@@ -58,32 +57,33 @@ public class ReservateAction implements Action{
 			for (int i = 0; i < cdao.getLists().size(); i++) {
 				if (cdao.getLists().get(i).getName().equals(carName)) {
 					index = i;
-					/* System.out.println("s:" + startD);
-					System.out.println("e:" + endD);
-					System.out.println("n:" + carName); */
+					/*
+					 * System.out.println("s:" + startD); System.out.println("e:" + endD);
+					 * System.out.println("n:" + carName);
+					 */
 				}
 			}
-			// 차 데이터테이블의 i번째를 주문 
+			// 차 데이터테이블의 i번째를 주문
 
 			String userName = String.valueOf(request.getSession().getAttribute("log"));
 			int carNo = cdao.getLists().get(index).getNo();
-			
-			/* System.out.println(userName);
-			System.out.println(carNo);
-			System.out.println(startD);
-			System.out.println(endD);
-			System.out.println(totalPrice); */
-			
-			ReservateDTO reserve = new ReservateDTO(userName,carNo,startD,endD,totalPrice);
-			
-			if(rdao.addList(reserve)!=-1){
-				url="reserveChk.jsp";
+
+			/*
+			 * System.out.println(userName); System.out.println(carNo);
+			 * System.out.println(startD); System.out.println(endD);
+			 * System.out.println(totalPrice);
+			 */
+
+			ReservateDTO reserve = new ReservateDTO(userName, carNo, startD, endD, totalPrice);
+
+			if (rdao.addList(reserve) != -1) {
+				url = "view/reserveChk.jsp";
 			}
 		}
-		
-		System.out.println("url:"+url);
+
+		System.out.println("url:" + url);
 		request.getRequestDispatcher(url).forward(request, response);
-		
+
 	}
 
 }

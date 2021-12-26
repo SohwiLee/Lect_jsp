@@ -17,8 +17,10 @@
 		<%@ include file="/common/header.jsp"%>
 		<main>
 			<!--  리뷰 카드 보여주기 -->
-			<h3>이용후기</h3>
 			<section>
+			<div>
+			<h2>이용후기</h2>
+			<div>
 			<% for(int i=0;i<revDao.getLists().size();i++){%>
 				<article>
 					<div class="carInfo">
@@ -47,7 +49,8 @@
 					</div>
 				</article>
 			<%}%>
-
+			</div>
+			</div>
 			</section>
 			<!-- 유저로그인 -->
 			<% if(session.getAttribute("log") != null){%>

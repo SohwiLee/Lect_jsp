@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/review.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/common.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/review.css">
 <title>review write</title>
 </head>
 <body>
@@ -56,8 +56,8 @@ CarDAO cdao = CarDAO.getInstance();	%>
 							</tr>
 						</table>
 						<div class="btns">
-							<input type="button" value="취소"> <input type="submit"
-								value="게시">
+							<input type="button" onclick="history.back(-1)" value="취소"> 
+							<input type="submit" value="게시">
 						</div>
 					</form>
 				</div>

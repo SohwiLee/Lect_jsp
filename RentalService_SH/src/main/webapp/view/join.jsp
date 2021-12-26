@@ -99,7 +99,7 @@
 	
 					</table>
 					<div class="btns">					
-						<input type="button" value="취소" onclick="location.href='index.jsp'">
+						<input type="button" value="취소" onclick="location.href='../index.jsp'">
 						<input type="submit" value="회원가입">
 					</div>
 				</form>

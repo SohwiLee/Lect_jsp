@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/reservate.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/common.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/reservate.css">
 <title>reservation check</title>
 </head>
 <body>
@@ -27,9 +27,9 @@ String user = String.valueOf(session.getAttribute("log"));
 %>
 	<%@ include file="/common/header.jsp"%>
 	<main>
-		<h3>예약확인</h3>
 		<section>
 			<div>
+				<h2>예약확인</h2>
 				<table>
 					<thead>
 						<tr>
@@ -56,9 +56,9 @@ String user = String.valueOf(session.getAttribute("log"));
                         <p>~ <%= rdao.getLists().get(i).getReserveEnd() %></p></td>
                        <td><%=rdao.getLists().get(i).getTotalPrice()%>원</td>
                        <td>
-                      <form action="reservateRemovePro.jsp">
-                      <!-- <input type="submit" value="예약취소"> -->
-                      <button onclick="cancel()">취소</button>
+                      <form action="/RentalService_SH/service">
+                      <input type="hidden" name="command" value="reserveCancel" >                      
+                      <input type="submit" value="예약취소">
                       <input type="hidden" name="cancelNum" value="<%=i%>" >                      
                       </form>
                        </td>
@@ -73,13 +73,6 @@ String user = String.valueOf(session.getAttribute("log"));
 	</main>
 	<%@ include file="/common/footer.jsp"%>
 	</div>
-	
-	<script>
-	function cancel(){
-		if(confirm("예약을 취소하시겠습니까?")){
-			location.herf="reservateRemovePro.jsp";
-		}
-	}
-	</script>
+
 </body>
 </html>

@@ -82,7 +82,10 @@ public class ReservateDAO {
 				pstmt.setInt(2, carCode);
 				pstmt.setTimestamp(3, start);
 				pstmt.setTimestamp(4, end);
+				pstmt.executeUpdate();
+				
 				lists.remove(delIdx);
+				System.out.println("removeRes.");
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("fail to removeRes.");
@@ -90,6 +93,7 @@ public class ReservateDAO {
 			
 		}
 		return delIdx;
+		
 	}
 	
 }

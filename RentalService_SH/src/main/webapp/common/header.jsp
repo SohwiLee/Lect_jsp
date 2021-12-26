@@ -26,8 +26,7 @@
 					<li><p><%= session.getAttribute("log")%></p></li>
 	 				<li>
 	 				<form action="service">
-	 				<a href="/RentalService_SH/index.jsp">로그아웃</a>
-	 				<input type="submit" name="command" value="logout">
+	 				<input type="submit" name="command" value="로그아웃">
 	 				</form>
 	 				</li>
 				<%}%>
@@ -39,12 +38,12 @@
 					<ul>
 						<li><a href="/RentalService_SH/view/reservation.jsp">예약 하기</a></li>
 						<li><a href="/RentalService_SH/view/reserveChk.jsp">예약 확인</a></li>
-						<li><a href="/RentalService_SH/view/userReview.jsp">이용 후기</a></li>
+						<li><a href="/RentalService_SH/view/review.jsp">이용 후기</a></li>
 						<li><a href="/RentalService_SH/view/help.jsp">고객센터</a></li>
 						<li><a href="/RentalService_SH/view/event.jsp">이벤트</a></li>
 						<li><a href="/RentalService_SH/view/notice.jsp">공지사항</a></li>
 						<%if(session.getAttribute("log") != null) {%>
-						<li><a href="/RentalService_SH/view/myPage.jsp">마이페이지</a></li>
+						<li><a href="/RentalService_SH/myPage/myPage.jsp">마이페이지</a></li>
 						<%}%>
 					</ul>
 				</nav>

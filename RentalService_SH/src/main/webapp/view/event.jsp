@@ -47,7 +47,7 @@
 					</table>
 					<%if(String.valueOf(session.getAttribute("log")).equals("admin")){%>
 					<!-- 관리자일때만 표시 -->
-						<button class="toWritePage" onclick="location.href='eventWrite.jsp'">글쓰기</button>							
+						<button class="toWritePage" onclick="location.href='/RentalService_SH/write/eventWrite.jsp'">글쓰기</button>							
 					<%}%> 
 					
 				</div>

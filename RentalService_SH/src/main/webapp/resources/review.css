@@ -1,6 +1,5 @@
 /* review page */
-h3{padding:20px 15px;}
-section{display: flex; flex-wrap: wrap; justify-content: space-evenly;}
+section > div > div{display: flex; flex-wrap: wrap; justify-content: space-between;}
 article{width:30%; max-width:400px; margin:10px 5px; border:1px solid lightgray; border-radius:5px; background:white;}
 /* article > img, article > div{float:left;} */
 img{max-width:200px; width:100%;}

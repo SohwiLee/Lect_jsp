@@ -79,13 +79,12 @@
 			<section class="result">
 				<div>
 					<% for(int i=0;i<dao.getLists().size();i++){ %>
-					<form action="service">
+					<form action=/RentalService_SH/service>
 						<article class="carInfo" 
 						<% if(type != null){						
 						if(dao.getLists().get(i).getSize().equals(type)){}else{%>
 							style="display:none"
 						<%}}%>>
-						<input type="hidden" name="command" value="reservate">
 							<div class="info1">
 								<img src="https://image.flaticon.com/icons/png/512/1254/1254754.png" alt="차이미지">
 							</div>
@@ -104,6 +103,7 @@
 								</p>
 								<!--  <button onclick="location.href='reservatePro.jsp'">예약하기</button> -->
 								<input class="submit" type="submit" value="예약하기">
+							<input type="hidden" name="command" value="reservate">
 							</div>
 						</article>
 					</form>
