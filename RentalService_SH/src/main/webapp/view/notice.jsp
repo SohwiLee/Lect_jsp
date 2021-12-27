@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/RentalService_SH/resources/common.css">
-<link rel="stylesheet" href="/RentalService_SH/resources/event.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/boards.css">
 <title>notice</title>
 </head>
 <body>
@@ -34,7 +34,7 @@
 							<tr>
 								<td><%= dao.getLists().get(i).getNo() %></td>
 								<td class="title">
-									<a href="eventView.jsp?idx=<%=i%>"><%= dao.getLists().get(i).getTitle() %></a>
+									<a href="noticeView.jsp?idx=<%=i%>"><%= dao.getLists().get(i).getTitle() %></a>
 									<input type="hidden" name="idx" value="<%=i%>">
 								</td>
 								<td><%= dao.getLists().get(i).getRegDate() %></td>
@@ -46,7 +46,7 @@
 						</tbody>
 					</table>
 					<%if(String.valueOf(session.getAttribute("log")).equals("admin")){%>
-						<button class="toWritePage" onclick="location.href='noticeWrite.jsp'">글쓰기</button>
+						<button class="toWritePage" onclick="location.href='/RentalService_SH/write/noticeWrite.jsp'">글쓰기</button>
 					<%}%>
 				</div>
 			</section>

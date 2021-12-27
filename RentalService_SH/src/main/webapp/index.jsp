@@ -133,7 +133,7 @@
 				<div>
 					<div class="sectionTitle">
 						<h2>이용후기</h2>
-						<a href="view/userReview.jsp">>>더보기</a>
+						<a href="view/review.jsp">>>더보기</a>
 					</div>
 					<div class="reviewBox">
 						<% for (int i = 0; i < 3; i++) { %>

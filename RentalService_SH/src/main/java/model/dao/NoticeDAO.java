@@ -53,7 +53,7 @@ public class NoticeDAO {
 			NoticeDTO newBoard = new NoticeDTO(board.getNo(), board.getTitle(), board.getContent(), board.getRegDate(), board.getViewCount(),0);
 			conn = DBManager.getConnection();
 			
-			String str="insert into noticeboard values(default,?,?,?,0)";
+			String str="insert into noticeboard values(default,?,?,?,0,0)";
 			pstmt = conn.prepareStatement(str);
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());

@@ -9,11 +9,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/RentalService_SH/resources/common.css">
-<link rel="stylesheet" href="/RentalService_SH/resources/event.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/boards.css">
 <title>event view</title>
 </head>
 <body>
 <% 
+	UserDAO udao = UserDAO.getInstance();
 	EventDAO dao = EventDAO.getInstance();
 	CommentDAO comDao = CommentDAO.getInstance();			
 	String idx = request.getParameter("idx");
@@ -53,9 +54,12 @@
 						</tbody>
                     </table>
                       <input type="button" class="back" value="뒤로가기" onclick="location.href='event.jsp'">
+                      <% if(session.getAttribute("log").equals("admin")){ %>
+                      <input type="button" class="edit" value="수정하기" onclick="location.href='eventEdit.jsp'">
+                      <% } %>
                 </div>
             </section>
-            <section>
+            <%-- <section>
 	            <div>
     	        	<h3>댓글</h3>
     	        	<% for(int i=0;i<comDao.getLists().size();i++){ %>
@@ -78,10 +82,10 @@
     	        		
     	        	<%}%>
 	            	
-	    		    <%-- if(session.getAttribute("log") !=null){ --%>
+	    		    <% if(session.getAttribute("log") !=null){ %>
     	        	<div class="commentBox">
 	    	        	<form action="commentPro.jsp">
-	    	        	<%-- <input type="hidden" name="no" value="<%= dao.getLists().get(Integer.parseInt(idx)).getNo()%>"> --%>
+	    	        	<input type="hidden" name="no" value="<%= dao.getLists().get(Integer.parseInt(idx)).getNo()%>">	    	        	
 	    	        	<input type="hidden" name="no" value="<%= idx%>">
 	    	        	<div class="comment">
 	    		        	<p> <span class="user"><%= session.getAttribute("log") %></span></p>
@@ -94,9 +98,9 @@
 	    	        	<div class="commentReply">
 	    	        	</div>
 	            	 </div>
-	    		     <%--}--%>
+	    		     <%}%>
            </div>
-           </section>
+           </section> --%>
         </main>
 
 		<%@ include file="/common/footer.jsp"%>

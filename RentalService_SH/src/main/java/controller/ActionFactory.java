@@ -1,13 +1,16 @@
 package controller;
 
 import controller.action.Action;
+import controller.action.EventWriteAction;
 import controller.action.IndexAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
+import controller.action.NoticeWriteAction;
 import controller.action.RemoveUserAction;
 import controller.action.ReservateAction;
 import controller.action.ReservateRemoveAction;
+import controller.action.ReviewWriteAction;
 import controller.action.myPageEditAction;
 
 // Factory Method : 생성디자인패턴
@@ -30,7 +33,9 @@ public class ActionFactory {
 		if(command.equals("editMyInfo")) {action = new myPageEditAction();}
 		if(command.equals("delUser")) {action = new RemoveUserAction();}
 		if(command.equals("회원가입") || command.equals("join")) {action = new JoinAction();}
-		
+		if(command.equals("eventWrite")) {action = new EventWriteAction();}
+		if(command.equals("noticeWrite")) {action = new NoticeWriteAction();}
+		if(command.equals("reviewWrite")) {action = new ReviewWriteAction();}
 		return action;
 	}
 

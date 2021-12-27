@@ -22,7 +22,7 @@ CarDAO cdao = CarDAO.getInstance();	%>
 			<section>
 				<div>
 					<h2>리뷰작성</h2>
-					<form action="userReviewWritePro.jsp">
+					<form action="/RentalService_SH/service">
 						<table>
 							<tr>
 								<td>차종</td>
@@ -58,6 +58,7 @@ CarDAO cdao = CarDAO.getInstance();	%>
 						<div class="btns">
 							<input type="button" onclick="history.back(-1)" value="취소"> 
 							<input type="submit" value="게시">
+							<input type="hidden" name="command" value="reviewWrite">
 						</div>
 					</form>
 				</div>

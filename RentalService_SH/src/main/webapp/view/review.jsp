@@ -54,7 +54,7 @@
 			</section>
 			<!-- 유저로그인 -->
 			<% if(session.getAttribute("log") != null){%>
-			<button onclick="location.href='reviewWrite.jsp'">글쓰기</button>
+			<button onclick="location.href='/RentalService_SH/write/reviewWrite.jsp'">글쓰기</button>
 			<%} %>
 		</main>
 		<%@ include file="/common/footer.jsp"%>

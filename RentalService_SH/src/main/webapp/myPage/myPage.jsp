@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/RentalService_SH/resources/common.css">
+<link rel="stylesheet" href="/RentalService_SH/resources/myPage.css">
 <title>myPage</title>
 </head>
 <body>
@@ -28,37 +29,37 @@
 				<h2>내 정보 / 수정</h2>
 					
 					<table>
-						<%-- <tr>
+						<tr>
 							<td>이름</td>
 							<td><%= udao.getUsers().get(idx).getUserName() %></td>
-						</tr> --%>
-						<%-- <tr>
+						</tr>
+						<tr>
 							<td>ID</td>
 							<td><%= udao.getUsers().get(idx).getId() %></td>
-						</tr> --%>
-						<%-- <tr>
+						</tr>
+						<tr>
 							<td>PW</td>
 							<td>
 								<% int len = udao.getUsers().get(idx).getPw().length();
 								for(int i=0;i<len;i++){%>*<%}%>
 							</td>
-						</tr> --%>
-						<%-- <tr>
+						</tr>
+						<tr>
 							<td>닉네임</td>
 							<td><%= udao.getUsers().get(idx).getUserNick() %></td>
-						</tr> --%>
-						<%-- <tr>
+						</tr>
+						<tr>
 							<td>전화번호</td>
 							<td><%= udao.getUsers().get(idx).getTel()%></td>
-						</tr> --%>
-						<%-- <tr>
+						</tr>
+						<tr>
 							<td>이메일</td>
 							<td><%= udao.getUsers().get(idx).getEmail() %></td>
-						</tr> --%>
-						<%-- <tr>
+						</tr>
+						<tr>
 							<td>가입일</td>
 							<td><%= udao.getUsers().get(idx).getRegDate() %></td>
-						</tr> --%>
+						</tr>
 					</table>
 			<form id="delUser" action="/RentalService_SH/service">
 					<button onclick="location.href='/RentalService_SH/myPage/myPageEdit.jsp'">정보 수정</button>

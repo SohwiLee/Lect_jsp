@@ -95,6 +95,8 @@ public class UserDAO {
 				System.out.println("fail to add");
 				e.printStackTrace();
 			}
+		}else {
+			System.out.println("중복아이디입니다.");
 		}
 
 		return -1;

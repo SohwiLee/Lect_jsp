@@ -17,7 +17,7 @@
 			<section>
 				<div>
 				<h2>공지작성</h2>
-					<form action="eventWritePro.jsp">
+					<form action="/RentalService_SH/service">
 						<table>
 							<tr>
 								<td>제목</td>
@@ -32,6 +32,7 @@
 						<div class="btns">
 							<input type="button" onclick="history.back(-1)" value="취소">
 							<input type="submit" value="게시">
+							<input type="hidden" name="command" value="noticeWrite">
 						</div>
 					</form>
 				</div>

@@ -10,8 +10,8 @@ public class EventDTO {
 	public EventDTO(int no, String title, String content, Timestamp regDate, int viewCount, int like) {
 		this.no=no;this.title=title;this.content=content;this.regDate=regDate;this.viewCount=viewCount; this.like=like;
 	}
-	public EventDTO(String title, String content) {
-		this.title=title;this.content=content;
+	public EventDTO(String title, String content, Timestamp regDate) {
+		this.title=title;this.content=content;this.regDate=regDate;
 	}
 	public int getNo() {
 		return no;
