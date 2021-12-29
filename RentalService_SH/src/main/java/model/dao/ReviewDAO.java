@@ -15,13 +15,12 @@ public class ReviewDAO {
 	
 	private ArrayList<ReviewDTO> lists = null;
 	
-	private Connection conn = null;
+	private Connection conn = DBManager.getConnection();
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 
 	public ArrayList<ReviewDTO> getLists() {
 		try {
-			conn = DBManager.getConnection();
 			String str = "select * from review";
 			pstmt = conn.prepareStatement(str);
 			rs = pstmt.executeQuery();
@@ -46,7 +45,6 @@ public class ReviewDAO {
 		ReviewDTO newReview = new ReviewDTO(review.getUserName(),review.getReservedCar(),review.getContent(),review.getScore());
 		
 		try {
-			conn = DBManager.getConnection();
 			String str = "insert into review values(?,?,?,?)";
 			pstmt = conn.prepareStatement(str);
 			pstmt.setString(1, review.getUserName());

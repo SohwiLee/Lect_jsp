@@ -8,26 +8,24 @@
 	<header>
 		<div>
 			<h1 class="logo">
-				<a href="/RentalService_SH/index.jsp">SH-Rental</a>
+				<a href="/RentalService_SH/">SH-Rental</a>
 			</h1>
 			<nav class="quickNav">
 				<ul class="clearfix">
-					<li><a href="/RentalService_SH/view/event.jsp">이벤트</a></li>
-					<li><a href="/RentalService_SH/view/review.jsp">이용후기</a></li>
-					<li><a href="/RentalService_SH/view/reservation.jsp">예약하기</a></li>
-					<li><a href="/RentalService_SH/view/reserveChk.jsp">예약확인</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="이벤트"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="이용후기"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="예약하기"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="예약확인"></form></li>
 				</ul>
 			</nav>
 			<ul class="forUsers">
 				<%if (session.getAttribute("log") == null) {%>
-					<li><a href="/RentalService_SH/view/login.jsp">로그인</a></li>
-					<li><a href="/RentalService_SH/view/join.jsp">회원가입</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="로그인"></form>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="회원가입"></form>
 				<%} else {%>
-					<li><p><%= session.getAttribute("log")%></p></li>
+					<li><p class="loginUser"><%= session.getAttribute("log")%></p></li>
 	 				<li>
-	 				<form action="/RentalService_SH/service">
-	 				<input type="submit" name="command" value="로그아웃">
-	 				</form>
+	 				<form action="/RentalService_SH/service"><input type="submit" name="command" value="로그아웃"></form>
 	 				</li>
 				<%}%>
 			</ul>
@@ -36,14 +34,13 @@
 				<nav class="allNav">
 					<button class="allNav-close" onclick="closeMenu()">닫기</button>
 					<ul>
-						<li><a href="/RentalService_SH/view/reservation.jsp">예약 하기</a></li>
-						<li><a href="/RentalService_SH/view/reserveChk.jsp">예약 확인</a></li>
-						<li><a href="/RentalService_SH/view/review.jsp">이용 후기</a></li>
-						<li><a href="/RentalService_SH/view/help.jsp">고객센터</a></li>
-						<li><a href="/RentalService_SH/view/event.jsp">이벤트</a></li>
-						<li><a href="/RentalService_SH/view/notice.jsp">공지사항</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="예약하기"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="예약확인"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="이용후기"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="이벤트"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="공지사항"></form></li>
 						<%if(session.getAttribute("log") != null) {%>
-						<li><a href="/RentalService_SH/myPage/myPage.jsp">마이페이지</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="마이페이지"></form></li>
 						<%}%>
 					</ul>
 				</nav>

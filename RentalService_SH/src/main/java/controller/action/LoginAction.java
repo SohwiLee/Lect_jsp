@@ -35,7 +35,7 @@ public class LoginAction implements Action{
 			 
 		    url="view/login.jsp";
 		}
-		System.out.println("URL:"+url);
+		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

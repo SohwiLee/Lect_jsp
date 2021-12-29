@@ -18,13 +18,12 @@ public class NoticeDAO {
 	
 	private ArrayList<NoticeDTO> noticeLists = null;
 	
-	private Connection conn = null;
-	private PreparedStatement pstmt=null;
+	private Connection conn = DBManager.getConnection();
+	private PreparedStatement pstmt;
 	private ResultSet rs = null;
 	
 	public ArrayList<NoticeDTO> getLists(){
 		try {
-			conn = DBManager.getConnection();
 			String str = "select * from noticeboard";
 			pstmt = conn.prepareStatement(str);
 			rs = pstmt.executeQuery();
@@ -51,7 +50,6 @@ public class NoticeDAO {
 		noticeLists = getLists();
 		try {
 			NoticeDTO newBoard = new NoticeDTO(board.getNo(), board.getTitle(), board.getContent(), board.getRegDate(), board.getViewCount(),0);
-			conn = DBManager.getConnection();
 			
 			String str="insert into noticeboard values(default,?,?,?,0,0)";
 			pstmt = conn.prepareStatement(str);
@@ -68,6 +66,61 @@ public class NoticeDAO {
 			System.out.println("notice update Failed");
 		}
 		return -1;
+	}
+	
+	public int delLists(int idx) {
+		noticeLists = getLists();
+		
+		try {
+			String str="delete from noticeboard where no=?";
+			pstmt = conn.prepareStatement(str);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+			
+			noticeLists.remove(idx);
+			return noticeLists.size();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	public void setLikeCount(int idx) {
+		noticeLists = getLists();
+		int cnt = noticeLists.get(idx).getLike();
+		int boardNo = noticeLists.get(idx).getNo();
+		try {
+			cnt+=1;
+			String likeUp="update noticeboard set likes=? where no=?";
+			pstmt = conn.prepareStatement(likeUp);
+			pstmt.setInt(1, cnt);
+			pstmt.setInt(2, boardNo);
+			pstmt.executeUpdate();
+			noticeLists.get(idx).setLike(cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("좋아요실패");
+		}
+	}
+	
+	public void setViewCount(int idx) {
+		noticeLists = getLists();
+		int cnt = noticeLists.get(idx).getViewCount();
+		int boardNo = noticeLists.get(idx).getNo();
+		try {
+			cnt+=1;
+			String viewUp="update noticeboard set viewCount=? where no=?";
+			pstmt = conn.prepareStatement(viewUp);
+			pstmt.setInt(1, cnt);
+			pstmt.setInt(2, boardNo);
+			pstmt.executeUpdate();
+			noticeLists.get(idx).setViewCount(cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("조회업데이트실패");
+		}
 	}
 	
 }

@@ -20,7 +20,7 @@ public class ReservateAction implements Action {
 		request.setCharacterEncoding("UTF-8");
 		String url = "";
 		if (request.getSession().getAttribute("log") == null) {
-			url = "login.jsp";
+			url = "view/login.jsp";
 			/*
 			 * PrintWriter outpr = response.getWriter();
 			 * outpr.println("<script language='javascript'>");
@@ -81,7 +81,6 @@ public class ReservateAction implements Action {
 			}
 		}
 
-		System.out.println("url:" + url);
 		request.getRequestDispatcher(url).forward(request, response);
 
 	}

@@ -18,17 +18,17 @@ public class DBManager {
 	public static Connection getConnection() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-
+		ResultSet rs = null;		
 		try {
-
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/car_rental?serverTimezone=UTC";
 			String id = "root";
 			String pw = "dlthgnl";
 
 			conn = DriverManager.getConnection(url, id, pw);
-
+			if (conn == null) {
+				System.out.println("no연동");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("DB연동 XX");

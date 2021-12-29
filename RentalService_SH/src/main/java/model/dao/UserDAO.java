@@ -17,13 +17,12 @@ public class UserDAO {
 	
 	private ArrayList<UserDTO> users = null;
 	
-	private Connection conn = null;
+	private Connection conn = DBManager.getConnection();
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
 	public ArrayList<UserDTO> getUsers() {
 		try {
-			conn = DBManager.getConnection();
 			String str = "select * from members";
 			pstmt = conn.prepareStatement(str);
 			rs = pstmt.executeQuery();
@@ -73,8 +72,6 @@ public class UserDAO {
 		if (checkUser(user.getId())) {
 			try {
 				UserDTO newUser = new UserDTO(user.getId(), user.getPw(), user.getUserNick(), user.getUserName(), user.getTel(), user.getEmail(), user.getRegDate());
-				conn = DBManager.getConnection();
-
 				String str = "insert into members values(?,?,?,?,?,?,?)";
 				pstmt = conn.prepareStatement(str);
 				pstmt.setString(1, user.getId());
@@ -113,7 +110,6 @@ public class UserDAO {
 		
 		if(delIdx !=-1) {
 			try {
-				conn = DBManager.getConnection();
 				String str = "delete from members where id=?";
 				pstmt = conn.prepareStatement(str);
 				pstmt.setString(1, id);
@@ -134,7 +130,6 @@ public class UserDAO {
 	public int updateUser(int idx, String nick, String tel, String email ,String id) {
 		users = getUsers();
 		try {
-			conn = DBManager.getConnection();
 			String str = "update members set userNick=?, tel=?, email=? where id=?";
 			pstmt = conn.prepareStatement(str);
 			pstmt.setString(1, nick);

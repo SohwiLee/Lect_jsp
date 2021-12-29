@@ -2,7 +2,7 @@
 section{margin-bottom:30px;}
 
 /* banner */
-.banner{background-color:lightgray; height:400px; margin:0 0 30px; text-align: center; position:relative; overflow:hidden;}
+.banner{background-color:black; height:400px; margin:0 0 30px; text-align: center; position:relative; overflow:hidden;}
 .banner img{height:400px;}
 /* .slideContainer{} */
 .slideBox{overflow: hidden;}

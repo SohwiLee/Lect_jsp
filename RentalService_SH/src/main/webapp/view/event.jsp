@@ -34,8 +34,10 @@
 							<tr>
 								<td><%= dao.getLists().get(i).getNo() %></td>
 								<td class="title">
-									<a href="eventView.jsp?idx=<%=i%>"><%= dao.getLists().get(i).getTitle() %></a>
-									<input type="hidden" name="idx" value="<%=i%>">
+									<form action="/RentalService_SH/service">
+									<input type="submit" value="<%= dao.getLists().get(i).getTitle() %>">
+									<input type="hidden" name="command" value="eventView"><input type="hidden" name="idx" value="<%=i%>">
+									</form>
 								</td>
 								<td><%= dao.getLists().get(i).getRegDate() %></td>
 								<td><%= dao.getLists().get(i).getViewCount() %></td>
@@ -47,7 +49,7 @@
 					</table>
 					<%if(String.valueOf(session.getAttribute("log")).equals("admin")){%>
 					<!-- 관리자일때만 표시 -->
-						<button class="toWritePage" onclick="location.href='/RentalService_SH/write/eventWrite.jsp'">글쓰기</button>							
+					<form action="/RentalService_SH/service"><input type="submit" value="글쓰기"><input type="hidden" name="command" value="이벤트글쓰기"></form>
 					<%}%> 
 					
 				</div>

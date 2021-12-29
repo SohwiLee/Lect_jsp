@@ -99,9 +99,8 @@
 	
 					</table>
 					<div class="btns">					
-						<input type="button" value="취소" onclick="location.href='../index.jsp'">
-						<input type="submit" value="회원가입">
-						<input type="hidden" name="command" value="join">
+						<input type="button" value="취소" onclick="history.back();">
+						<input type="submit" name="command" value="가입하기">
 					</div>
 				</form>
 			</div>

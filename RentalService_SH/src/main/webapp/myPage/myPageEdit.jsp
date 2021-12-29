@@ -1,3 +1,5 @@
+<%@page import="model.dto.UserDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,9 +14,10 @@
 <body>
 	<%
 	UserDAO udao = UserDAO.getInstance();
+	ArrayList<UserDTO> users = udao.getUsers();
 	int idx = -1;
-	for (int i = 0; i < udao.getUsers().size(); i++) {
-		if (session.getAttribute("log").equals(udao.getUsers().get(i).getId())) {
+	for (int i = 0; i < users.size(); i++) {
+		if (session.getAttribute("log").toString().equals(users.get(i).getId())) {
 			idx = i;
 		}
 	}
@@ -80,7 +83,7 @@
 	<script>
 	function removeUser(){
 		if(confirm("정말 탈퇴하시겠습니까?")){
-			location.href=location.href='remove.jsp';
+			location.href=location.href='/';
 		}
 	}
 		

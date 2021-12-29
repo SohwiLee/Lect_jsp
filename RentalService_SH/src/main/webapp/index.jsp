@@ -77,7 +77,10 @@
 				<div>
 					<div class="sectionTitle">
 						<h2>이벤트 & 추천</h2>
-						<a href="view/reservation.jsp">>>더보기</a>
+						<form action="service">
+						<input type="hidden" name="command" value="예약하기">
+						<input type="submit" value="+더보기">
+						</form>
 					</div>
 
 					<article>
@@ -133,7 +136,10 @@
 				<div>
 					<div class="sectionTitle">
 						<h2>이용후기</h2>
-						<a href="view/review.jsp">>>더보기</a>
+						<form action="service">
+						<input type="hidden" name="command" value="이용후기">
+						<input type="submit" value="+더보기">
+						</form>
 					</div>
 					<div class="reviewBox">
 						<% for (int i = 0; i < 3; i++) { %>

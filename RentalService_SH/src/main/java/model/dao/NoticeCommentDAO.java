@@ -9,23 +9,22 @@ import java.util.ArrayList;
 import model.dto.CommentDTO;
 import util.DBManager;
 
-public class CommentDAO {
-	private CommentDAO() {}
-	private static CommentDAO instance = new CommentDAO();
-	public static CommentDAO getInstance() {
+public class NoticeCommentDAO {
+	private NoticeCommentDAO() {}
+	private static NoticeCommentDAO instance = new NoticeCommentDAO();
+	public static NoticeCommentDAO getInstance() {
 		return instance;
 	}
 	
 	private ArrayList<CommentDTO> lists = null;
 	
-	private Connection conn = null;
-	private PreparedStatement pstmt=null;
+	private Connection conn = DBManager.getConnection();
+	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
 	public ArrayList<CommentDTO> getLists(){
 		try {
-			conn = DBManager.getConnection();
-			String str="select * from comment";
+			String str="select * from noticecomment";
 			pstmt = conn.prepareStatement(str);
 			rs = pstmt.executeQuery();
 			
@@ -53,8 +52,7 @@ public class CommentDAO {
 		try {
 			CommentDTO newComment = new CommentDTO(com.getNum(), com.getBoardIdx(), com.getId(), com.getRegDate(),com.getContent());
 
-			conn = DBManager.getConnection();
-			String str="insert into comment values(default,?,?,?,?)";
+			String str="insert into noticecomment values(default,?,?,?,?)";
 			pstmt = conn.prepareStatement(str);
 			pstmt.setInt(1, com.getBoardIdx());
 			pstmt.setString(2, com.getId());

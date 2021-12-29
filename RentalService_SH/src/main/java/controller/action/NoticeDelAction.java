@@ -1,26 +1,32 @@
 package controller.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.UserDAO;
+import model.dao.NoticeDAO;
 
-public class RemoveUserAction implements Action {
+public class NoticeDelAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserDAO dao = UserDAO.getInstance();
-		String id = String.valueOf(request.getSession().getAttribute("log"));
-
-		String url="";
-		if (dao.delUser(id) != -1) {
-			request.getSession().setAttribute("log", null);
-			url="index.jsp";
+		NoticeDAO dao = NoticeDAO.getInstance();
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		int delIdx=-1;
+		for(int i=0;i<dao.getLists().size();i++) {
+			if(idx==i) {
+				delIdx=i;
+			}
 		}
+		int delNum = dao.getLists().get(delIdx).getNo();
+		
+		String url="";
+		if(dao.delLists(delNum) !=-1) {
+			url="view/notice.jsp";
+		}
+		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

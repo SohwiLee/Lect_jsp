@@ -15,14 +15,13 @@ public class CarDAO {
 	
 	private ArrayList<CarDTO> cars = null;
 	
-	private Connection conn = null;
+	private Connection conn = DBManager.getConnection();
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
 
 	public ArrayList<CarDTO> getLists(){
 		try {
-			conn = DBManager.getConnection();
 			String str = "select * from cars";
 			pstmt = conn.prepareStatement(str);
 			rs = pstmt.executeQuery();

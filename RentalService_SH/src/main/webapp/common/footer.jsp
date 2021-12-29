@@ -15,22 +15,22 @@
 				<ul>
 					<li><p>서비스 소개</p></li>
 					<li><a href="#">회사소개</a></li>
-					<li><a href="userReview.jsp">이용후기</a></li>
-					<li><a href="event.jsp">이벤트</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="이용후기"></form></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="이벤트"></form></li>
 					<li><a href="">이용혜택</a></li>
 				</ul>
 				<ul>
 					<li><p>고객센터</p></li>
-					<li><a href="notice.jsp">공지사항</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="공지사항"></form></li>
 					<li><a href="help.jsp">자주 묻는 질문</a></li>
-					<li><a href="reserveChk.jsp">예약확인</a></li>
+					<li> <form action="/RentalService_SH/service"><input type="submit" name="command" value="예약확인"></form></li>
 				</ul>
-				<ul>
+				<ul class="media">
 					<li><p>팔로우하기</p></li>
-					<li><a href="https://www.instagram.com/" target="_blank">star</a></li>
-	                <li><a href="https://www.youtube.com/" target="_blank">tube</a></li>
-	                <li><a href="http://blog.naver.com/" target="_blank">blog</a></li>
-	                <li><a href="https://www.facebook.com/" target="_blank">fbok</a></li>
+					<li><a href="https://www.instagram.com/" target="_blank"> <img alt="instagramLogo" src="https://www.clipartmax.com/png/full/4-41427_instagram-png-icon-instagram-logo-transparent.png"> </a></li>
+	                <li><a href="https://www.youtube.com/" target="_blank"> <img alt="youtubeLogo" src="https://www.clipartmax.com/png/full/16-160592_youtube-clipart-square-social-media-icons-youtube.png"> </a></li> <br>
+	                <li><a href="http://blog.naver.com/" target="_blank"> <img alt="naverBlogLogo" src="https://www.apkmirror.com/wp-content/uploads/2019/11/5dcba5b76ba6e.png"> </a></li>
+	                <li><a href="https://www.facebook.com/" target="_blank"> <img alt="facebookLogo" src="https://www.clipartmax.com/png/full/17-171363_facebook-logo-png-%5Bnew-2015%5D-vector-eps-free-download-transparent-background-facebook.png"> </a></li>
 				</ul>
 			</div>
 			<div class="help">

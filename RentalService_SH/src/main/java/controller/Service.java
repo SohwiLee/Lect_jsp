@@ -30,13 +30,13 @@ public class Service extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("ServiceServlet - Served at:"+request.getContextPath());
+		//System.out.println("ServiceServlet - Served at:"+request.getContextPath());
 		// request parameter command 안에 있는 명령 확인 후 
 		// 명령에 맞는 Action Instacne 반환
-		
+		String idx = request.getParameter("idx");
 		String command = request.getParameter("command");
 		ActionFactory af = ActionFactory.getInstance();
-		Action action = af.getAction(command);
+		Action action = af.getAction(command,idx);
 
 		if(action!= null) {
 			action.execute(request, response);

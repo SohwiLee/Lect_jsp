@@ -14,6 +14,7 @@
 	<%
 	UserDAO udao = UserDAO.getInstance();
 	int idx = -1;
+	System.out.println("session::"+session.getAttribute("log"));
 	for (int i = 0; i < udao.getUsers().size(); i++) {
 		if (session.getAttribute("log").equals(udao.getUsers().get(i).getId())) {
 			idx = i;
@@ -61,10 +62,11 @@
 							<td><%= udao.getUsers().get(idx).getRegDate() %></td>
 						</tr>
 					</table>
-			<form id="delUser" action="/RentalService_SH/service">
-					<button onclick="location.href='/RentalService_SH/myPage/myPageEdit.jsp'">정보 수정</button>
-					<button onclick="removeUser()">회원 탈퇴</button>
-					<input type="hidden" name="command" value="delUser">
+					<form action="/RentalService_SH/service">
+					<input type="submit" name="command" value="myEdit">
+					</form>
+					<form id="delUser">
+					<input type="submit" onclick="removeUser()" value="회원탈퇴">
 					</form>
 				</div>
 			</section>
@@ -83,7 +85,15 @@
 	<script>
 	function removeUser(){
 		if(confirm("정말 탈퇴하시겠습니까?")){
-			document.querySelector("#delUser").submit();
+			const makeInput = document.createElement("input");
+			makeInput.setAttribute('type','hidden');
+			makeInput.setAttribute('name','command');
+			makeInput.setAttribute('value','delUser');
+			document.querySelector("#delUser").setAttribute("action","/RentalService_SH/service");
+			document.querySelector("#delUser").append(makeInput);
+		}else{
+			alert("취소");
+			location.href="myPage.jsp";
 		}
 	}
 	

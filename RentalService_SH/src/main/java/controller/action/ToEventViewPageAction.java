@@ -1,27 +1,27 @@
 package controller.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.UserDAO;
+import model.dao.EventDAO;
 
-public class RemoveUserAction implements Action {
+public class ToEventViewPageAction implements Action{
+
+	String index="";
+	public ToEventViewPageAction(String idx) {
+		index=idx;
+	}
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserDAO dao = UserDAO.getInstance();
-		String id = String.valueOf(request.getSession().getAttribute("log"));
-
-		String url="";
-		if (dao.delUser(id) != -1) {
-			request.getSession().setAttribute("log", null);
-			url="index.jsp";
-		}
+		EventDAO dao = EventDAO.getInstance();
+		String url="view/eventView.jsp?idx="+index;
+		dao.setViewCount(Integer.parseInt(index));
 		request.getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 }

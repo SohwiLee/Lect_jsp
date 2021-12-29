@@ -17,10 +17,14 @@
 if(session.getAttribute("log")==null){
 	   PrintWriter outpr = response.getWriter();
 	    outpr.println("<script language='javascript'>");
-	    outpr.println("alert('로그인이 필요한 서비스입니다.'); location.href='login.jsp';");
-	    outpr.println("</script>");
-	    outpr.flush();
+	    outpr.println("alert('로그인이 필요한 서비스입니다.');history.back();");
+		outpr.println("</script>");
+		outpr.flush();
+	  
 }
+%>
+
+<% 
 ReservateDAO rdao = ReservateDAO.getInstance();
 CarDAO cdao = CarDAO.getInstance();
 String user = String.valueOf(session.getAttribute("log"));

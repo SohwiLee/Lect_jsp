@@ -32,10 +32,13 @@
 						<tbody>
 						<% for(int i=0;i<dao.getLists().size();i++){ %>
 							<tr>
-								<td><%= dao.getLists().get(i).getNo() %></td>
+								<td><%=dao.getLists().get(i).getNo()%></td>
 								<td class="title">
-									<a href="noticeView.jsp?idx=<%=i%>"><%= dao.getLists().get(i).getTitle() %></a>
-									<input type="hidden" name="idx" value="<%=i%>">
+									<form action="/RentalService_SH/service">
+										<input type="submit" value="<%=dao.getLists().get(i).getTitle()%>"> 
+										<input type="hidden" name="command" value="noticeView"><input type="hidden" name="idx" value="<%=i%>">
+									</form>
+
 								</td>
 								<td><%= dao.getLists().get(i).getRegDate() %></td>
 								<td><%= dao.getLists().get(i).getViewCount() %></td>

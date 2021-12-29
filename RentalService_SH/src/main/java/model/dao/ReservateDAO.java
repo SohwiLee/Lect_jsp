@@ -16,12 +16,12 @@ public class ReservateDAO {
 	
 	private ArrayList<ReservateDTO> lists = null;
 	
-	private Connection conn = null;
+	private Connection conn=DBManager.getConnection();
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	public ArrayList<ReservateDTO> getLists(){
 		try {
-			conn=DBManager.getConnection();
+			
 			String str = "select * from reservation";
 			pstmt = conn.prepareStatement(str);
 			rs = pstmt.executeQuery();
@@ -46,7 +46,6 @@ public class ReservateDAO {
 		lists = getLists();
 		try {
 			ReservateDTO newReserve = new ReservateDTO(reserve.getUserName(),reserve.getCarCode(),reserve.getReserveStart(),reserve.getReserveEnd(),reserve.getTotalPrice());
-			conn = DBManager.getConnection();
 			
 			String str = "insert into reservation values(?,?,?,?,?)";
 			pstmt = conn.prepareStatement(str);
@@ -75,7 +74,6 @@ public class ReservateDAO {
 		
 		if(delIdx!=-1) {
 			try {
-				conn = DBManager.getConnection();
 				String str="delete from reservation where userName=? and carCode=? and reserveStart=? and reserveEnd=?";
 				pstmt = conn.prepareStatement(str);
 				pstmt.setString(1, userName);
