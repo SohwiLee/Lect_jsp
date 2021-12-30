@@ -1,4 +1,5 @@
 <%@page import="model.dao.ReviewDAO"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,68 +10,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="resources/common.css">
 <link rel="stylesheet" href="resources/index.css">
+<link rel="stylesheet" href="resources/carousel.css">
+<script src="resources/carousel.js" type="text/javascript"></script>
 <title>Index</title>
 </head>
 <body>
-	<%
-	ReviewDAO revDao = ReviewDAO.getInstance();
-	/* UserDAO dao = UserDAO.getInstance();
-	for(int i=0;i<dao.getUsers().size();i++){
-	System.out.println(dao.getUsers().get(i).getUserName()+" "+dao.getUsers().get(i).getTel());	
-	} */
-	%>
+	<% ReviewDAO revDao = ReviewDAO.getInstance(); %>
 	<div class="wrap">
-		<%@ include file="/common/header.jsp"%>
+		<c:import url="/common/header.jsp"/>
 		<main>
 			<section class="banner">
-				<div>
-					<!-- <article class="quickSearch">
-						<form action="search.jsp">
-							<div class="rentalDate">
-								<label for="rentStart">대여일</label><br> <input
-									type="datetime-local" name="rentStart" id="rentStart"><br>
-								<label for="rentEnd">반납일</label><br> <input
-									type="datetime-local" name="rentEnd" id="rentEnd">
-							</div>
-							<div class="typeChoice">
-								<p>차종</p>
-								<input type="radio" name="carType" id="type1" value="경형">
-								<label for="type1">경형</label> <input type="radio" name="carType"
-									id="type2" value="소형"> <label for="type2">소형</label> <input
-									type="radio" name="carType" id="type3" value="중형"> <label
-									for="type3">중형</label> <input type="radio" name="carType"
-									id="type4" value="RV/SUV"> <label for="type4">RV/SUV</label>
-
-								<input type="radio" name="carType" id="type5" value="승합">
-								<label for="type5">승합</label> <input type="radio" name="carType"
-									id="type6" value="수입"> <label for="type6">수입</label>
-							</div>
-							<input type="submit" value="빠른검색">
-						</form>
-					</article> -->
-					<!-- 배너 슬라이드 -->
-					<article class="slideContainer">
-						<div class="slideBox">
-							<div class="slidePanel">
-								<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947" alt="">
-							</div>
-							<div class="slidePanel">
-								<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947" alt="">
-							</div>
-							<div class="slidePanel">
-								<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947" alt="">
-							</div>
-							<div class="slidePanel">
-								<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947" alt="">
-							</div>
-							<div class="slidePanel">
-								<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947" alt="">
-							</div>
-							<div class="slidePanel">
-								<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947" alt="">
-							</div>
+				<div class="carousel" id="carousel-banner">
+					<div class="carousel-wrapper">
+						<div class="carousel-item">
+							<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80794947">
 						</div>
-					</article>
+						<div class="carousel-item">
+							<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=46168945">
+						</div>
+						<div class="carousel-item">
+							<img src="https://www.jejupassrent.com/util/file/noTokenDownload.do?fileSn=80426957">
+						</div>
+					</div>
+					<div class="navi-wrapper"></div>
 				</div>
 			</section>
 			<section class="recommendation">
@@ -142,7 +104,7 @@
 						</form>
 					</div>
 					<div class="reviewBox">
-						<% for (int i = 0; i < 3; i++) { %>
+					<% for (int i = 0; i < 3; i++) { %>
 						<article>
 							<div class="carInfo">
 								<div>
@@ -171,12 +133,24 @@
 								<p class="reserveInfo"><%=revDao.getLists().get(i).getContent()%></p>
 							</div>
 						</article>
-						<% } %>
+						<% } %>						
 					</div>
 				</div>
 			</section>
 		</main>
-		<%@ include file="./common/footer.jsp"%>
+		<c:import url="/common/footer.jsp"/>
 	</div>
+
+	<script>
+		new Carousel(document.querySelector('#carousel-banner'), {
+			CarouselMotion : 'slide',
+			naviPosition : 'bottom',
+			naviStyle : 'arrow',
+			autoMove : true,
+			autoMoveTime : 3000
+		});
+	</script>
+
+
 </body>
 </html>

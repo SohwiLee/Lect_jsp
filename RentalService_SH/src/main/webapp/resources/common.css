@@ -4,7 +4,7 @@
 .warp{width:100vw;}
 
 /* header style */
-header{width:100%; position:fixed; background:#0070bd; z-index: 100;}
+header{width:100%; position:fixed; background:#0070bd; border-bottom:1px solid #375177;z-index: 100;}
 header > div{max-width:1280px; margin:0 auto; height:100px; display:flex; justify-content: space-evenly; align-items: center; position:relative;}
 h1{text-align: center; grid-area: h1; font-size: 2.5em;}
 h1 a, .quickNav a,.quickNav input, .forUsers a, .forUsers input, .allNav a,.allNav input{color:white;}
@@ -13,7 +13,7 @@ ul li input[type=submit]{background-color:transparent;}
 
 /* navigator */
 .quickNav{text-align: center;}
-.quickNav li{font-weight:600;margin:0 15px;}
+.quickNav li{font-weight:600;}
 .quickNav li input{font-size:1.2em;}
 .quickNav li input:hover, .forUsers li input:hover{color:#192028;}
 .forUsers li{margin:0 10px;}
@@ -37,7 +37,7 @@ main section > div{max-width:1280px; margin:0 auto;}
 .sectionTitle a, .sectionTitle input[type=submit]{font-size:1em;}
 
 /* footer style */
-footer{padding:50px 50px 80px; background-color:#192028; color:white;}
+footer{padding:50px 50px 80px; background-color:#192028; border-top:1px solid #0a1d3d;;color:white;}
 footer .logo{font-size:1.2em;margin-bottom:20px;}
 footer input[type=submit], footer a{color:#7e7e7e;font-size:1em;padding:0;}
 .subscribe input[type=text],.subscribe input[type=button]{color:white;margin-top:10px;background-color:#26303b;border:1px solid #26303b; vertical-align: middle;}
